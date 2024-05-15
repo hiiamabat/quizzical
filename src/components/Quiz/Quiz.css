@@ -1,0 +1,43 @@
+.quiz {
+  margin-top: 3em;
+}
+
+.quiz h2 {
+  font-size: 2.1rem;
+}
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radio-button {
+  padding: 0.3em 1.5em;
+  border: 2px solid #293264;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  margin: 0.5em;
+  font-size: 1.5rem;
+}
+
+.radio-button:focus,
+.radio-button:hover {
+  /* outline: none; */
+  background: #d6dbf5;
+}
+
+.radio-button input[type="radio"] {
+  display: none; /* Hide the actual radio inputs */
+}
+
+.radio-button input[type="radio"]:checked + span {
+  background-color: #d6dbf5;
+  border: none;
+}
+
+.results {
+  margin-top: 1em;
+  font-size: 3rem;
+}

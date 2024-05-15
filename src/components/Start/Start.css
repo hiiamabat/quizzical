@@ -16,22 +16,6 @@
   color: #888;
 }
 
-.start:before {
-  content: url("../../assets/blobs-2.png");
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.start:after {
-  content: url("../../assets/blobs1.png");
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-}
-
 @media screen and (min-width: 1000px) {
   .start h1 {
     font-size: 6rem;

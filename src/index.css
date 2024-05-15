@@ -4,13 +4,28 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  background-color: #f5f7fb;
   color: #293264;
-
+  background: #f6f7fb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root:before {
+  content: url("./assets/blob2.png");
+  position: absolute;
+  bottom: -200px;
+  left: -100px;
+  z-index: -1;
+}
+
+#root:after {
+  content: url("./assets/blob1.png");
+  position: absolute;
+  top: -300px;
+  right: -200px;
+  z-index: -1;
 }
 
 body {
@@ -37,6 +52,11 @@ h3 {
 p {
   padding: 0;
   margin: 0;
+}
+
+fieldset {
+  border: none;
+  margin-top: 1.5em;
 }
 
 .btn {
