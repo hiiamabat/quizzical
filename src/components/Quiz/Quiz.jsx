@@ -4,18 +4,11 @@ import "./Quiz.css";
 export default function Quiz({ quizData, getNewQuizData }) {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
-  const [newGame, setNewGame] = useState(false);
   const [currentQuizData, setCurrentQuizData] = useState([]);
 
   useEffect(() => {
     setCurrentQuizData(quizData);
   }, [quizData]);
-
-  const handlePlayNewGame = () => {
-    getNewQuizData();
-    setShowResults(false);
-    setSelectedAnswers({});
-  };
 
   const handleAnswerSelect = (questionId, answer) => {
     setSelectedAnswers({ ...selectedAnswers, [questionId]: answer });
@@ -33,6 +26,12 @@ export default function Quiz({ quizData, getNewQuizData }) {
       }
     });
     return correctCount;
+  };
+
+  const handlePlayNewGame = () => {
+    getNewQuizData();
+    setShowResults(false);
+    setSelectedAnswers({});
   };
 
   return (
@@ -62,9 +61,13 @@ export default function Quiz({ quizData, getNewQuizData }) {
                         backgroundColor = "#F8BCBC";
                         border = "none";
                       } else {
-                        console.log("Setting opacity to 0.5");
                         opacity = 0.5;
                       }
+                    }
+
+                    if (!showResults) {
+                      backgroundColor = isSelected ? "#D6DBF5" : "";
+                      border = isSelected ? "none" : "2px solid #293264";
                     }
 
                     return (
@@ -106,13 +109,13 @@ export default function Quiz({ quizData, getNewQuizData }) {
       )}
       {showResults && (
         <div className="results">
-          <button className="btn" onClick={handlePlayNewGame}>
-            Play New Game
-          </button>
           <p>
             You got {countCorrectAnswers()} out of {currentQuizData.length}{" "}
             right
           </p>
+          <button className="btn" onClick={handlePlayNewGame}>
+            Play New Game
+          </button>
         </div>
       )}
     </div>
